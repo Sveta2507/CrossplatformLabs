@@ -20,7 +20,7 @@ namespace Lab1.Tests
         [Fact]
         public void TestDivisors_2()
         {
-            long input = 2;
+            long input = 1019;
             string output = "2";
 
             string result = Program.GetDivisorsCount(input);
@@ -53,7 +53,7 @@ namespace Lab1.Tests
         [Fact]
         public void TestDivisors_1019()
         {
-            long input = 1019;
+            long input = 1000000000000000001;
             string output = "число завелике";
 
             string result = Program.GetDivisorsCount(input);

@@ -7,11 +7,11 @@ namespace Lab1
     {
         static void Main()
         {
-            string projectDirectory = Directory.GetCurrentDirectory();// та, де виконуємо команди білда
+            string projectDirectory = Directory.GetCurrentDirectory();
 
             string inputFilePath = Path.Combine(projectDirectory, "input.txt");
             string outputFilePath = Path.Combine(projectDirectory, "output.txt");
- 
+
             long n;
 
             using (StreamReader reader = new StreamReader(inputFilePath))
@@ -29,21 +29,27 @@ namespace Lab1
 
         public static string GetDivisorsCount(long n)
         {
-            if (n > 1018)
+            if (n > 1000000000000000000) //10^18
             {
                 return "число завелике";
             }
 
             int count = 0;
-            for (long i = 1; i <= n; i++)
+            long sqrtN = (long)Math.Sqrt(n); //для кпащих часових показників не будемо ітерувати до заданого числа n, а до кореня цього числа
+
+            for (long i = 1; i <= sqrtN; i++)
             {
-                if (n % i == 0) //якщо залишок від ділення 0
+                if (n % i == 0)//якщо залишок від ділення 0
                 {
-                    count++; //додаємо 1 до лічильника
+                    count++;//то це дільник (збільшили лічильник)
+                    if (i != n / i) //якщо при діленні числа на дільник отримуємо інше число
+                    {
+                        count++; // то це також дільник
+                    }
                 }
             }
 
-            return count.ToString(); //повертаємо кількість дільників як строчний тип
+            return count.ToString();
         }
     }
 }
