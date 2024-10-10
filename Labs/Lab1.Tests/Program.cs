@@ -54,7 +54,7 @@ namespace Lab1.Tests
         public void TestDivisors_1019()
         {
             long input = 1000000000000000001;
-            string output = "число завелике";
+            string output = "число некоректне";
 
             string result = Program.GetDivisorsCount(input);
 

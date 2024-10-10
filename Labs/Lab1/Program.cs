@@ -29,9 +29,9 @@ namespace Lab1
 
         public static string GetDivisorsCount(long n)
         {
-            if (n > 1000000000000000000) //10^18
+            if (n > 1000000000000000000 || n < 1) //10^18
             {
-                return "число завелике";
+                return "число некоректне";
             }
 
             int count = 0;
